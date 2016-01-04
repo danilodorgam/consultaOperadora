@@ -37,7 +37,7 @@
 				
 				$data['operadora'] = $operadora[1];
 				$data['tipo'] = substr(strrchr(strip_tags($resultado->find('p', 0)->outertext), ' &raquo; '), 1);
-				$data['portabilidade'] = (strtolower(substr(strrchr(strip_tags($resultado->find('p', 1)->outertext), ' &raquo; '), 1)) == 'sim' ? "Sim" : "Não");
+				$data['portabilidade'] = (strtolower(substr(strrchr(strip_tags($resultado->find('p', 1)->outertext), ' &raquo; '), 1)) == 'sim' ? "Sim" : "NÃ£o");
 				$data['estado'] = str_replace(array('(', ')'), '', substr(strrchr(strip_tags($resultado->find('p', 2)->outertext), ' &raquo; '), 1));
 				$cidade = explode(' &raquo; ', strip_tags($resultado->find('p', 3)->outertext));
 				$data['cidade'] = $cidade[1];
@@ -47,10 +47,10 @@
 		}
 	}
 	
-	$dados = dados_telefone('(34)9951009');
+	$dados = dados_telefone('(##)# ####-####');
 	print_r($dados);
 	if($dados == false)
-		echo "Número inválido ou não encontrado!";
+		echo "NÃºmero invÃ¡lido ou nÃ£o encontrado!";
 	else
 		print_r($dados);
 ?>
